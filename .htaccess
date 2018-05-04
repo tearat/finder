@@ -1,0 +1,7 @@
+RewriteEngine On
+
+#
+
+RewriteRule    ^$ index.php?page=index
+
+RewriteRule    ^finder$ index.php?page=finder
