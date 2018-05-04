@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+     <meta charset="UTF-8"> 
+<!--    <meta charset="windows-1251">-->
+    <title>finder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="favicon2.gif" />
+</head>
+<body>
+    <div class="work">
+            <a href="index.php">
+            <img src="finder-logo.png" alt="">
+            <h3>v0.2 xampp (28.10.2016)</h3>
+        </a>
+        <form action="finder.php" method="post">
+            <input type="text" name="input" id="post" autotab>
+            <br>
+            <input type="checkbox" name="details" id="checkbox" checked> <label for="checkbox">Вывести подробности</label>
+            <br>
+            <input type="checkbox" name="few" id="checkbox2" checked> <label for="checkbox2">Несколько файлов</label>
+            <br>
+            <input type="checkbox" name="maybe" id="checkbox3" checked> <label for="checkbox3">Искать неявные совпадения</label>
+            <br>
+            <input type="submit" value="Поиск">
+            <script>
+            document.getElementById('post').focus();
+        </script>
+        </form>
+ 
