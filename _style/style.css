@@ -4,8 +4,8 @@ body {
     margin-top: 20px;
     font-family: verdana;
     color: white;
+    background-color: black;
     background-image: url(../_img/bg.jpg);
-    background-repeat: repeat;
 }
 
 .container {
@@ -13,9 +13,13 @@ body {
     max-width: 800px;
     min-width: 200px;
     text-align: center;
+/*    background-color: rgba(0,0,0,0.75);*/
     background-color: rgba(255,255,255,0.05);
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+}
+
+hr {
+    border-bottom: none;
 }
 
 a {
@@ -42,10 +46,6 @@ p {
     margin: 0;
     padding: 2px;
     font-size: 12px;
-}
-
-p:hover:not(.version) {
-    background-color: #222;
 }
 
 form {
