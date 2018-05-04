@@ -90,7 +90,7 @@ function finder()
             foreach (glob('*') as $file)    // Глоб ищет каждый файл или папку в текущей директории
             {          
                 $iterations++;
-                if (is_dir($file))  //Если это директория, то она записывается в массив $subdirs
+                if ( is_dir($file) )  //Если это директория, то она записывается в массив $subdirs
                 {
                     if ( !in_array($file, $ban_dirs) )   // Директории из бан-листа будут проигнорированы
                     {
@@ -110,13 +110,14 @@ function finder()
                             text("Обнаружен файл <A href='".linkgen(getcwd()).'\\'.$file."' target='_blank'>".$file."</A>", "p"); 
                         }
                         
-                        foreach (glob('*'.$target.'*') as $eq)   // Глоб ищет совпадения как частичные, так и полные
+                        preg_match('/'.$target.'/', $file, $matches, PREG_OFFSET_CAPTURE);
+                        if ( !empty($matches) ) 
                         {
                             if ($check_details == true) 
                             { 
                                 text( "Подходящий файл <A href='".linkgen(getcwd().'\\'.$file)."' target='_blank'>".$file."</A> обнаружен", "p" );
                             }
-                            $myfiles[] = linkgen(getcwd().'\\'.$eq);     // В массив добавляется полная ссылка
+                            $myfiles[] = linkgen(getcwd().'\\'.$file);     // В массив добавляется ссылка
                         }
                     }
                 }
@@ -138,7 +139,7 @@ function finder()
         text( "Найденные файлы:", "h2", true );
         foreach ($myfiles as $file) 
         {
-            text( "<A href='".linkgen($file)."' target='_blank'>$file</A>", "p" );
+            text( "<A href='".$file."' target='_blank'>$file</A>", "p" );
         }
     }
     else    // Если ничего нет
@@ -151,19 +152,17 @@ function finder()
 // А если точнее, то обрезает их начало
 function linkgen($file) 
 {
-    $domain = "finder.am";
-    $count = count($domain)-1;
+    // from C:\openserver\OSPanel\domains\finder.am\data\second\test.txt
+    // to \data\second\test.txt
     
+    $url = $_SERVER["HTTP_HOST"];
     $link = str_replace( "\\", '/', $file );
+    $count = strlen( $url );
+    $pos = strpos( $link, $url );
+    $generated = substr( $link, $pos+$count );
     
-    $pos = strpos( $link, $domain );
-    
-    return substr( $link, $pos+$count );
+    return $generated;
 }
-
-?>
-
-<?php
 
 require_once "_views/index.html";
 
