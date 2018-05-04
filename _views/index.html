@@ -7,28 +7,25 @@
     <link rel="icon" type="image/png" href="_img/favicon2.gif" />
 </head>
 <body>
-    <div class="work">
-        <a href="index.php">
-<!--            <img src="finder-logo.png">-->
-<!--            <h3>v0.2 xampp (28.10.2016)</h3>-->
-            <h3>v0.3 openserver (04.05.2018)</h3>
+    <div class="container">
+       
+        <a href="/">
+            <img src="../_img/finder-logo.png">
         </a>
-        <form action="finder" method="post">
-            <input type="text" name="target" id="post" autotab>
+        <p class="version">v0.3 (upd 04.05.2018)</p>
+        
+        <form action="/" method="post">
+            <input type="text" name="target" id="target" autofocus>
             <br>
-            <input type="checkbox" name="details" id="checkbox" checked> <label for="checkbox">Вывести подробности</label>
+            <button>Искать!</button>
             <br>
-            <input type="checkbox" name="few" id="checkbox2" checked> <label for="checkbox2">Несколько файлов</label>
-            <br>
-            <input type="checkbox" name="maybe" id="checkbox3" checked> <label for="checkbox3">Искать неявные совпадения</label>
-            <br>
-            <input type="submit" value="Поиск">
+            <label>Показать детали?
+                <input type="checkbox" name="details">
+            </label>
         </form>
+        
         <?php echo $results; ?>
+        
     </div>
 </body>
 </html>
-
-<script>
-    document.getElementById('post').focus();
-</script>
