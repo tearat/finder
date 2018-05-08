@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <title>Finder 0.3</title>
     <link rel="stylesheet" href="_style/style.css">
     <link rel="icon" type="image/png" href="_img/favicon2.gif" />
 </head>
+
 <body>
     <div class="container">
-       
+
         <a href="/">
             <img src="../_img/finder-logo.png">
         </a>
         <p class="version">v0.3 (upd 04.05.2018)</p>
-        
+
         <form action="/" method="post">
             <input type="text" name="target" id="target" autofocus>
             <br>
@@ -23,9 +25,10 @@
                 <input type="checkbox" name="details">
             </label>
         </form>
-        
+
         <?php echo $results; ?>
-        
+
     </div>
 </body>
+
 </html>
